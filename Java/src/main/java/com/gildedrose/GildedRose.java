@@ -1,13 +1,35 @@
 package com.gildedrose;
 
-class GildedRose {
-    Item[] items;
+import com.gildedrose.items.interfaces.UpdatableItem;
 
-    public GildedRose(Item[] items) {
+class GildedRose implements IGildedRose {
+    
+    public UpdatableItem updatableItems[];
+
+	public GildedRose(UpdatableItem[] updatableItems) {
+        this.updatableItems = updatableItems;
+    }
+	
+
+	public void updateQuality() {
+		for (UpdatableItem updatableItem : updatableItems) {
+			updatableItem.updateQuality();
+		}
+
+    }
+	
+	/** Old methods do not delete -- do not use :) **/
+	
+	@Deprecated
+	public GildedRose(Item[] items) {
         this.items = items;
     }
+	
+	@Deprecated
+    public Item[] items;
 
-    public void updateQuality() {
+	@Deprecated
+    public void updateQualityV0() {
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
