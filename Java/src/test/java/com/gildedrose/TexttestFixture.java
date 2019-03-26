@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.items.AgedBrie;
 import com.gildedrose.items.BackstagePass;
+import com.gildedrose.items.Conjured;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.StandardItem;
 import com.gildedrose.items.Sulfuras;
@@ -23,7 +24,7 @@ public class TexttestFixture {
                 new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 4, 40),
                 new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 4, 49),
                 // this conjured item does not work properly yet
-                new StandardItem("Conjured Mana Cake", 3, 6) };
+                new Conjured("Conjured Mana Cake", 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
