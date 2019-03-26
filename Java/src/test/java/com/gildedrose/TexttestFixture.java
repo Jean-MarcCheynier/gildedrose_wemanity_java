@@ -1,20 +1,29 @@
 package com.gildedrose;
 
+import com.gildedrose.items.AgedBrie;
+import com.gildedrose.items.BackstagePass;
+import com.gildedrose.items.LegendaryItem;
+import com.gildedrose.items.StandardItem;
+import com.gildedrose.items.Sulfuras;
+import com.gildedrose.items.interfaces.UpdatableItem;
+
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+        UpdatableItem[] items = new UpdatableItem[] {
+                new StandardItem("+5 Dexterity Vest", 10, 20), //
+                new AgedBrie("Aged Brie", 2, 0), //
+                new StandardItem("Elixir of the Mongoose", 5, 7), //
+                new Sulfuras("Sulfuras, Hand of Ragnaros", 0, 80), //
+                new Sulfuras("Sulfuras, Hand of Ragnaros", -1, 80),
+                new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 10, 20),
+                new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 9, 20),
+                new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 40),
+                new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 4, 40),
+                new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 4, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+                new StandardItem("Conjured Mana Cake", 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
@@ -26,12 +35,11 @@ public class TexttestFixture {
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
-            for (Item item : items) {
+            for (UpdatableItem item : items) {
                 System.out.println(item);
             }
             System.out.println();
             app.updateQuality();
         }
     }
-
 }
