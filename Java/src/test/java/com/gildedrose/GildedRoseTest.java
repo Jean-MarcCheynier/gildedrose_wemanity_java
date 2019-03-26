@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.gildedrose.items.AgedBrie;
 import com.gildedrose.items.BackstagePass;
+import com.gildedrose.items.Conjured;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.StandardItem;
 import com.gildedrose.items.interfaces.UpdatableItem;
@@ -80,6 +81,18 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals(45, app.updatableItems[0].getQuality());
         assertEquals(2, app.updatableItems[0].getSellIn());
+    }
+    
+    @Test
+    public void conjuredItem() {
+        UpdatableItem[] items = new UpdatableItem[] { new  Conjured("Conjured", 2, 45) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(43, app.updatableItems[0].getQuality());
+        app.updateQuality();
+        assertEquals(41, app.updatableItems[0].getQuality());
+        app.updateQuality();
+        assertEquals(37, app.updatableItems[0].getQuality());
     }
     
     

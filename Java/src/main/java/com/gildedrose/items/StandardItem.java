@@ -6,7 +6,8 @@ import com.gildedrose.items.interfaces.UpdatableItem;
 public class StandardItem extends Item implements UpdatableItem {
 	
 	private int deltaQ = -1;
-	private static int MAXQUAL = 50, MINQUAL = 0;
+	private static int MAXQUAL = 50;
+	private static int MINQUAL = 0;
 	
 	public StandardItem(String name, int sellIn, int quality) {
 		super(name, sellIn, quality);
@@ -57,9 +58,9 @@ public class StandardItem extends Item implements UpdatableItem {
 			this.quality+=deltaQ;
 		}
 		/* The Quality of an item is never negative */
-		this.quality = quality>0?quality:MINQUAL;
+		this.quality = (quality<=MINQUAL)?MINQUAL:quality;
 		/*The Quality of an item is never more than 50*/
-		this.quality = quality>50?MAXQUAL:quality;
+		this.quality = (quality>=MAXQUAL)?MAXQUAL:quality;
 
 	}
 
