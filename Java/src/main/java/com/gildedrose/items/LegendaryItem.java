@@ -21,8 +21,18 @@ public class LegendaryItem extends Item implements UpdatableItem  {
 
 	@Override
 	public int getQuality() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.quality;
+	}
+
+	@Override
+	public int getSellIn() {
+
+		return this.sellIn;
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
 	}
 
 }

@@ -59,7 +59,7 @@ public class StandardItem extends Item implements UpdatableItem {
 		/* The Quality of an item is never negative */
 		this.quality = quality>0?quality:MINQUAL;
 		/*The Quality of an item is never more than 50*/
-		this.quality = quality>50?50:MAXQUAL;
+		this.quality = quality>50?MAXQUAL:quality;
 
 	}
 
